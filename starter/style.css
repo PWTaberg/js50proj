@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+* {
+	/* padding etc will not change the widh of the element */
+	box-sizing: border-box;
+}
+body {
+	font-family: 'Roboto', sans-serif;
+	display: flex;
+	flex-direction: column;
+	/* align cross flex direction */
+	align-items: center;
+	/* align in flex direction, eight is needed */
+	justify-content: center;
+	/* entire height of browser */
+	height: 100vh;
+	/* no scrollbars */
+	overflow: hidden;
+	margin: 0;
+}

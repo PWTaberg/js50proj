@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Muli&display=swap');
+
+:root {
+	--line-border-fill: #3498db;
+	--line-border-empty: #e0e0e0;
+}
+* {
+	/* padding etc will not change the widh of the element */
+	box-sizing: border-box;
+}
+body {
+	background-color: #f6f7fb;
+	font-family: 'Muli', sans-serif;
+	display: flex;
+	/* align cross flex direction */
+	align-items: center;
+	/* align in flex direction, eight is needed */
+	justify-content: center;
+	/* entire height of browser */
+	height: 100vh;
+	/* no scrollbars */
+	overflow: hidden;
+	margin: 0;
+}
+
+.container {
+	border: red dotted 2px;
+
+	text-align: center;
+}
+
+.progress-container {
+	border: blue dotted 2px;
+
+	display: flex;
+	justify-content: space-between;
+	position: relative;
+	margin-bottom: 30px;
+	max-width: 100%;
+	width: 350px;
+}
+
+.progress-container::before {
+	/* need to be included for ::before / ::after */
+	content: '';
+	background-color: var(--line-border-empty);
+	position: absolute;
+	top: 50%;
+	left: 0;
+	/* move line so it comes in the middle */
+	transform: translateY(-50%);
+	height: 4px;
+	width: 100%;
+	z-index: -1;
+}
+
+.progress {
+	background-color: var(--line-border-fill);
+	position: absolute;
+	top: 50%;
+	left: 0;
+	/* move line so it comes in the middle */
+	transform: translateY(-50%);
+	height: 4px;
+	width: 0;
+	z-index: -1;
+	/*
+	-webkit-transition: opacity 0.3s ease-in 0.4s;
+	-moz-transition: opacity 0.3s ease-in 0.4s;
+	-o-transition: opacity 0.3s ease-in 0.4s;
+	*/
+	transition: 0.4s ease;
+}
+
+.circle {
+	background-color: #fff;
+	color: #999;
+	border-radius: 50%;
+	height: 30px;
+	width: 30px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: 4px solid var(--line-border-empty);
+	transition: 0.4s ease;
+}
+.circle.active {
+	border-color: var(--line-border-fill);
+}
+
+.btn {
+	background-color: var(--line-border-fill);
+	color: #fff;
+	border: 0;
+	border-radius: 6px;
+	cursor: pointer;
+	/* inherit from parent */
+	font-family: inherit;
+	/* top-bottom left-right */
+	padding: 8px 30px;
+	font-size: 14px;
+}
+
+.btn:active {
+	transform: scale(0.98);
+}
+
+/* remove outline on focused btn */
+.btn:focus {
+	outline: 0;
+}
+
+.btn:disabled {
+	background-color: var(--line-border-empty);
+	/* show not allowed sign */
+	cursor: not-allowed;
+}

@@ -11,7 +11,7 @@ next.addEventListener('click', () => {
 		currentActive = circles.length;
 	}
 
-	update();
+	updateProgress();
 });
 
 prev.addEventListener('click', () => {
@@ -20,10 +20,10 @@ prev.addEventListener('click', () => {
 		currentActive = 1;
 	}
 
-	update();
+	updateProgress();
 });
 
-function update() {
+function updateProgress() {
 	// update active on circles
 	circles.forEach((circle, index) => {
 		if (index < currentActive) {

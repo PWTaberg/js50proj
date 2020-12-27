@@ -30,14 +30,13 @@ function createTags(input) {
 		tagEl.classList.add('tag');
 		tagEl.innerText = tag;
 		tagsEl.appendChild(tagEl);
-		console.log(tagsEl);
 	});
 }
 
 function randomSelect() {
-	console.log('hooo hooo');
 	const times = 30;
 
+	// Flicker 30 times
 	const interval = setInterval(() => {
 		const randomTag = pickRandomTag();
 		highlightTag(randomTag);
@@ -47,6 +46,7 @@ function randomSelect() {
 		}, 100);
 	}, 100);
 
+	// pick a random tag
 	setTimeout(() => {
 		clearInterval(interval);
 

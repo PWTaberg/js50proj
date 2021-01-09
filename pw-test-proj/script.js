@@ -22,6 +22,10 @@ timeToSec.addEventListener('click', (e) => {
 	// validation
 	let timeFormatIsOK = true;
 	let minMaxIsOK = true;
+	let minValueToLow = false;
+	let minValueToHigh = false;
+	let maxValueToLow = false;
+	let maxValueToHigh = false;
 
 	// Check that timestring format is OK
 
@@ -44,6 +48,27 @@ timeToSec.addEventListener('click', (e) => {
 		let minTimeInSec = timeInSec(minTime.value);
 		let maxTimeInSec = timeInSec(maxTime.value);
 
+		if (toHigh(minTimeInSec) === true) {
+			console.log('to High');
+			minValueToHigh = true;
+		}
+
+		if (toLow(minTimeInSec) === true) {
+			console.log('to Low');
+			minValueToLow = true;
+		}
+
+		if (toHigh(maxTimeInSec) === true) {
+			console.log('to High');
+
+			maxValueToHigh = true;
+		}
+
+		if (toLow(maxTimeInSec) === true) {
+			console.log('to low');
+
+			maxValueToLow = true;
+		}
 		// check if min < max
 		if (validMinMax(minTimeInSec, maxTimeInSec) === true) {
 			maxTimeSec.innerText = maxTimeInSec;
@@ -54,6 +79,21 @@ timeToSec.addEventListener('click', (e) => {
 			minTimeSec.innerText = 0;
 			maxTimeSec.innerText = 'Min Time should be less than Max Time';
 			minTimeSec.innerText = 'Min Time should be less than Max Time';
+		}
+
+		// check if any value is to low
+		if (minValueToLow === true) {
+			minTimeSec.innerText = 'The race is about running, not flying';
+		}
+		if (maxValueToLow === true) {
+			maxTimeSec.innerText = 'The race is about running, not flying';
+		}
+		// check if any value is to high
+		if (minValueToHigh === true) {
+			minTimeSec.innerText = 'The race is about running, not crawling';
+		}
+		if (maxValueToHigh === true) {
+			maxTimeSec.innerText = 'The race is about running, not crawling';
 		}
 	}
 });
@@ -77,9 +117,21 @@ const validNumberStr = (numberStr) => {
 	return numberStr.length > 0 ? true : false;
 };
 
-// Used for validating that min value is less than max value
+// Used for validating that min value less than max value
 const validMinMax = (minVal, maxVal) => {
 	return minVal < maxVal ? true : false;
+};
+
+// Used for validating that value not lower than 165 ~ 2.45 min
+const toLow = (numVal) => {
+	console.log('toLow ', numVal);
+	return numVal < 165 ? true : false;
+};
+
+// Used for validating that value is not greater than 420 ~ 7 min
+const toHigh = (numVal) => {
+	console.log('toHigh ', numVal);
+	return numVal > 420 ? true : false;
 };
 
 // Used for converting a time string to a number with seconds

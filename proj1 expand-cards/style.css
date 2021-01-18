@@ -46,7 +46,7 @@ body {
 	opacity: 0;
 }
 
-/* the div have bith panel and active class */
+/* the div have both panel and active class */
 .panel.active {
 	flex: 5;
 }

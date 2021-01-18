@@ -52,3 +52,16 @@ button {
 	padding: 10px;
 	cursor: pointer;
 }
+
+.btnGrp {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
+
+#limitBtn,
+#limitTxt,
+#timeToSec {
+	margin: 10px;
+}

@@ -30,3 +30,5 @@ counters.forEach((counter) => {
 	updateCounter();
 	console.log('bye');
 });
+
+// Step 3 add transition on opacity

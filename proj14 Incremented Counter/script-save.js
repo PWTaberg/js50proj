@@ -28,5 +28,4 @@ counters.forEach((counter) => {
 	};
 
 	updateCounter();
-	console.log('bye');
 });

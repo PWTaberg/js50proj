@@ -4,7 +4,8 @@
 // Get a list of all panels
 const panels = document.querySelectorAll('.panel');
 // console.log(panels)
-
+console.log(panels);
+/*
 // Step 2
 //Get a list of panels
 panels.forEach((panel, index) => {
@@ -24,3 +25,4 @@ function removeActiveClasses() {
 		panel.classList.remove('active');
 	});
 }
+*/

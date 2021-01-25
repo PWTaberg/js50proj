@@ -1,5 +1,9 @@
 // Keys are in ../../config/movieApp.js
 
+//const API_URL = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${API_KEY}&page=1`;
+
+//onst SEARCH_API = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query="`´;
+
 //
 
 const form = document.getElementById('form');
@@ -12,6 +16,8 @@ getMovies(API_URL);
 async function getMovies(url) {
 	const response = await fetch(url);
 	const data = await response.json();
+
+	console.log(data);
 
 	showMovies(data.results);
 }

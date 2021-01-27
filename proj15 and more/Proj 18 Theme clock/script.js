@@ -7,7 +7,7 @@ const toggle = document.querySelector('.toggle');
 const clockEl = document.querySelector('.clock');
 const clockContainerEl = document.querySelector('.clock-container');
 
-const bodyEl = document.querySelector('body');
+const timeToggle = document.querySelector('.timeToggle');
 
 const days = [
 	'Sunday',
@@ -56,6 +56,7 @@ function setTime() {
 	const minutes = time.getMinutes();
 	const seconds = time.getSeconds();
 	const ampm = hours >= 12 ? 'PM' : 'AM';
+
 
 	// If hour-needle is > 0, then allow transition
 	if (scale(hours, 0, 11, 0, 360) > 1) {

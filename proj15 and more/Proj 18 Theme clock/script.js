@@ -1,9 +1,13 @@
 const hourEl = document.querySelector('.hour');
 const minuteEl = document.querySelector('.minute');
-const secondEl = document.querySelector('.second');
+const secondEl = document.querySelector('.needle.second');
 const timeEl = document.querySelector('.time');
 const dateEl = document.querySelector('.date');
 const toggle = document.querySelector('.toggle');
+const clockEl = document.querySelector('.clock');
+const clockContainerEl = document.querySelector('.clock-container');
+
+const bodyEl = document.querySelector('body');
 
 const days = [
 	'Sunday',
@@ -53,6 +57,14 @@ function setTime() {
 	const seconds = time.getSeconds();
 	const ampm = hours >= 12 ? 'PM' : 'AM';
 
+	// If hour-needle is > 0, then allow transition
+	if (scale(hours, 0, 11, 0, 360) > 1) {
+		minuteEl.style.transition = '';
+	}
+	// if hours-needle > 359, then turn of transition
+	if (scale(hours, 0, 11, 0, 360) > 359) {
+		minuteEl.style.transition = 'none';
+	}
 	// Get hour 0-360
 	hourEl.style.transform = `translate(-50%, -100%) rotate(${scale(
 		hoursForClock,
@@ -61,6 +73,15 @@ function setTime() {
 		0,
 		360
 	)}deg)`;
+
+	// If minute-needle is > 0, then allow transition
+	if (scale(minutes, 0, 59, 0, 360) > 1) {
+		minuteEl.style.transition = '';
+	}
+	// if seconds-needle > 359, then turn of transition
+	if (scale(minutes, 0, 59, 0, 360) > 359) {
+		minuteEl.style.transition = 'none';
+	}
 
 	// get minute 0-360
 	minuteEl.style.transform = `translate(-50%, -100%) rotate(${scale(
@@ -71,7 +92,23 @@ function setTime() {
 		360
 	)}deg)`;
 
-	// get seconds 0-360
+	// If seconds-needle is > 0, then allow transition
+	if (scale(seconds, 0, 59, 0, 360) > 1) {
+		secondEl.style.transition = '';
+	}
+
+	// if seconds-needle > 359, then turn of transition
+	if (scale(seconds, 0, 59, 0, 360) > 359) {
+		secondEl.style.transition = 'none';
+	}
+	secondEl.style.transform = `translate(-50%, -100%) rotate(${scale(
+		seconds,
+		0,
+		59,
+		0,
+		360
+	)}deg)`;
+
 	secondEl.style.transform = `translate(-50%, -100%) rotate(${scale(
 		seconds,
 		0,
@@ -95,3 +132,6 @@ const scale = (num, in_min, in_max, out_min, out_max) => {
 setTime();
 
 setInterval(setTime, 1000);
+
+console.log(scale(59, 0, 59, 0, 360));
+console.log(scale(0, 0, 59, 0, 360));

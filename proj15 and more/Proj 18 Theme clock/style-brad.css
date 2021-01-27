@@ -11,7 +11,7 @@
 }
 
 html {
-	/* transition: all 0.5s ease-in; */
+	transition: all 0.5s ease-in;
 }
 
 html.dark {
@@ -70,7 +70,7 @@ body {
 	height: 65px;
 	width: 3px;
 	transform-origin: bottom center;
-	/* transition: all 0.5s ease-in; */
+	transition: all 0.5s ease-in;
 }
 
 .needle.hour {
@@ -83,7 +83,6 @@ body {
 }
 
 .needle.second {
-	transition: all 0.5s ease-in;
 	transform: translate(-50%, -100%) rotate(0deg);
 	height: 100px;
 	background-color: #e74c3c;

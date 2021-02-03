@@ -7,11 +7,12 @@ textarea.addEventListener('keyup', (e) => {
 	createTags(e.target.value);
 
 	if (e.key === 'Enter') {
-		// Well reset textarea after 0.01 sec
+		// We reset textarea after 0.01 sec
 		setTimeout(() => {
 			e.target.value = '';
 		}, 10);
 
+		//
 		randomSelect();
 	}
 });
@@ -36,20 +37,24 @@ function createTags(input) {
 function randomSelect() {
 	const times = 30;
 
-	// Flicker 30 times
+	// Start flickering every 0.1s
 	const interval = setInterval(() => {
+		// Highlight a random tag
 		const randomTag = pickRandomTag();
 		highlightTag(randomTag);
 
+		// unhighlight it after 0,1 seconds
 		setTimeout(() => {
 			unHighlightTag(randomTag);
 		}, 100);
 	}, 100);
 
-	// pick a random tag
+	// stop flickering after 3 seconds
 	setTimeout(() => {
+		// Stop Interval timer
 		clearInterval(interval);
 
+		// Dubble flickering
 		setTimeout(() => {
 			const randomTag = pickRandomTag();
 			highlightTag(randomTag);
@@ -58,7 +63,9 @@ function randomSelect() {
 }
 
 function pickRandomTag() {
+	// Get list of tags, this is dynamic cant't be done before
 	const tags = document.querySelectorAll('.tag');
+	// Return a random number 0 - lenght -1
 	return tags[Math.floor(Math.random() * tags.length)];
 }
 

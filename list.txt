@@ -1,5 +1,9 @@
 proj1 - Expanding Cards
 proj2 - Progress bar
+(proj3 - rotating nav)
+(proj4 - hidden search)
+(proj5 - blurry loading
+(proj6 - scroll animation)
 proj9 - Sound Board
 proj10 - Dad Jokes
 proj15 - Drink water
@@ -13,3 +17,10 @@ proj31 - Good Check Box
 proj34 - Image Slider
 proj35 - hover Board
 proj36 - pokedex
+proj39 - 3D Boxes
+proj41 - Live User
+proj42 - feedback
+(proj43 - Range Slider)
+proj44 -Netflix nav
+proj46 - testimonials
+proj48 - todos

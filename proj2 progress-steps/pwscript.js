@@ -7,12 +7,16 @@ const next = document.getElementById('next');
 const circles = document.querySelectorAll('.circle');
 
 // Step 2
+
 // the active step
 let currentActive = 1;
 
-// Step 3 - add listeners
+// Step 3
+
 // next button, make next step active
 next.addEventListener('click', () => {
+	// syep 3.1
+
 	// step 3.3
 	// Make sure you can't go by last steå
 	currentActive++;
@@ -22,6 +26,8 @@ next.addEventListener('click', () => {
 
 	// step 3.2
 	console.log(currentActive);
+
+	// Step 5
 	updateProgress();
 });
 
@@ -32,24 +38,14 @@ prev.addEventListener('click', () => {
 	if (currentActive < 1) {
 		currentActive = 1;
 	}
-
+	// Step 5
 	updateProgress();
 });
 
+// Step 5
 function updateProgress() {
-	//update 5
+	// 5.1 forEach circle
 	// update active on circles
-	updateCircles();
-
-	// step 6
-	updateProgressBar();
-
-	// Step 7
-	// Enable / Disable buttons
-	updateButtons();
-}
-
-function updateCircles() {
 	circles.forEach((circle, index) => {
 		// 5.2 print index / currentActive
 		console.log(index, '/', currentActive);
@@ -63,9 +59,8 @@ function updateCircles() {
 			circle.classList.remove('active');
 		}
 	});
-}
 
-function updateProgressBar() {
+	// step 6
 	// Get list of .active
 	const actives = document.querySelectorAll('.active');
 
@@ -84,10 +79,8 @@ function updateProgressBar() {
 	// Update progress width
 	progress.style.width = `${progressbarWidth}%`;
 
-	console.log('width ', progressbarWidth);
-}
-
-function updateButtons() {
+	// Step 7
+	// Enable / Disable buttons
 	if (currentActive === 1) {
 		// Disable PREV button
 		console.log('currentActive === 1');
@@ -102,8 +95,4 @@ function updateButtons() {
 		prev.disabled = false;
 		next.disabled = false;
 	}
-
-	// check  button html
-	console.log(prev);
-	console.log(next);
 }

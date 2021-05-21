@@ -4,28 +4,23 @@ const progress = document.getElementById('progress');
 const prev = document.getElementById('prev');
 const next = document.getElementById('next');
 // List of all circles
-const circles = document.querySelectorAll('.circle');
+const allCircles = document.querySelectorAll('.circle');
 
-// Step 2
 // the active step
 let currentActive = 1;
 
-// Step 3 - add listeners
 // next button, make next step active
 next.addEventListener('click', () => {
-	// step 3.3
 	// Make sure you can't go by last steå
 	currentActive++;
-	if (currentActive > circles.length) {
-		currentActive = circles.length;
+	if (currentActive > allCircles.length) {
+		currentActive = allCircles.length;
 	}
 
-	// step 3.2
 	console.log(currentActive);
 	updateProgress();
 });
 
-// Step 4
 // prev button, do the opposite
 prev.addEventListener('click', () => {
 	currentActive--;
@@ -37,26 +32,22 @@ prev.addEventListener('click', () => {
 });
 
 function updateProgress() {
-	//update 5
 	// update active on circles
 	updateCircles();
 
-	// step 6
 	updateProgressBar();
 
-	// Step 7
 	// Enable / Disable buttons
 	updateButtons();
 }
 
 function updateCircles() {
-	circles.forEach((circle, index) => {
-		// 5.2 print index / currentActive
+	allCircles.forEach((circle, index) => {
 		console.log(index, '/', currentActive);
-		// 5.3
+
 		// Check if circle index is less than currentActive
 		if (index < currentActive) {
-			// Add active
+			// Add active to circle
 			circle.classList.add('active');
 		} else {
 			// remove active
@@ -66,21 +57,22 @@ function updateCircles() {
 }
 
 function updateProgressBar() {
-	// Get list of .active
-	const actives = document.querySelectorAll('.active');
+	// Get list of .active cilrcles
+	const allActiveCircles = document.querySelectorAll('.active');
 
-	// step 6.1
 	// define length of progressbar
-	console.log('actives', actives.length);
-	console.log('circles', circles.length);
+	console.log('actives', allActiveCircles.length);
+	console.log('circles', allCircles.length);
 
 	// progress in procent
-	// 6.2
+
 	//let progressbarWidth = (actives.length / circles.length) * 100;
+	// If number of circles are 4, then number of bars is 3
 
-	let progressbarWidth = ((actives.length - 1) / (circles.length - 1)) * 100;
+	let progressbarWidth =
+		((allActiveCircles.length - 1) / (allCircles.length - 1)) * 100;
 
-	// 6.3
+
 	// Update progress width
 	progress.style.width = `${progressbarWidth}%`;
 
@@ -92,7 +84,7 @@ function updateButtons() {
 		// Disable PREV button
 		console.log('currentActive === 1');
 		prev.disabled = true;
-	} else if (currentActive === circles.length) {
+	} else if (currentActive === allCircles.length) {
 		// Disable NEXT button
 		console.log('currentActive === length');
 		next.disabled = true;

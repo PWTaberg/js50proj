@@ -1,28 +1,44 @@
 // console.log(document)
 
-// Step 1 selects anything using css
 // Get a list of all panels
 const panels = document.querySelectorAll('.panel');
-// console.log(panels)
-console.log(panels);
 
-// Step 2
-//Get a list of panels
-/* See modified step 2
+console.log('panel with index=2::', panels[2]);
+console.log('length -  number of panels::', panels.length);
+
+// Set up listners for each panel  ( 5 listeners )
+/*
 panels.forEach((panel, index) => {
+	console.log('panel with index::', index, panel);
 	panel.addEventListener('click', () => {
-		// step 2.2
+		console.log('click - within container');
 		removeActiveClasses();
 
-		// step 2.1
 		panel.classList.add('active');
 	});
 });
 */
-// Step 2.2
+
+// Classic for loop instead
+
+for (index = 0; index < panels.length; index++) {
+	console.log('classic for loop', index);
+
+	const thePanel = panels[index];
+	panels[index].addEventListener('click', (e) => {
+		console.log('click - within container');
+		removeActiveClasses();
+
+		e.target.classList.add('active');
+	});
+}
+
+
 // Remove all active classes
 function removeActiveClasses() {
-	panels.forEach((panel) => {
+	const activePanels = document.querySelectorAll('.panel.active');
+	//console.log('activePanels', activePanels);
+	activePanels.forEach((panel) => {
 		panel.classList.remove('active');
 	});
 }
@@ -31,14 +47,23 @@ function removeActiveClasses() {
 
 /* only one eventListener, event bubbeling */
 const container = document.querySelector('.container');
-
+/*
 container.addEventListener('click', (e) => {
+	console.log('click within container');
+
+	console.log('e', e);
 	if (e.target.classList.contains('panel')) {
-		// step 2.2
+		console.log('click within a panel');
+
 		removeActiveClasses();
 
 		e.target.classList.add('active');
 	} else {
-		console.log('this is outside the panel');
+		console.log('click outside of panel');
 	}
 });
+*/
+
+const headerTitle = document.getElementById('H-T');
+headerTitle.innerHTML = '<h1>Hello</h1>';
+console.log(headerTitle);

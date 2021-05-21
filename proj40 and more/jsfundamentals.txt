@@ -1,0 +1,22 @@
+JS Crash Course:
+1 - Variables Data types
+    const, var, let
+    number(101 3.0), string('hej', '101', 'true'), boolean(true, false), null, undefined
+
+    const name = 'Anton Welliver Ux-Developer' (name.length, name.toUpperCase() name.subString(), name.split(' ') )
+
+2 -arrays
+   const numbers = new Array(1,2,3,4)
+   const numbers = [1,2,3,4,5,6 ] 
+
+3 - object literals
+
+4  - methods for strings, arrays, objects
+
+5 - loops forEach (43)
+
+6 - conditionals
+
+7 - functions
+
+DOM - 1.10 

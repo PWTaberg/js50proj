@@ -7,8 +7,10 @@ window.addEventListener('scroll', checkBoxes);
 checkBoxes();
 
 function checkBoxes() {
-	console.log((window.innerHeight / 5) * 4);
+	console.log('trigger bottom', (window.innerHeight / 5) * 4);
+	console.log('window.innerHeight', window.innerHeight);
 	const triggerBottom = (window.innerHeight / 5) * 4;
+
 	boxes.forEach((box) => {
 		// Find out where top of box is
 		const boxTop = box.getBoundingClientRect().top;
